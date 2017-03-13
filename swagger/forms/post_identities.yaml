@@ -1,0 +1,13 @@
+type: object
+required:
+  - identityID
+properties:
+  identityID:
+    type: string
+    description: The ObjectId of an identity
+    pattern: "[0-9a-z]{24}"
+  createdAt:
+    description: The creation date
+    type: string
+    format: date
+    minLength: 0

@@ -1,0 +1,6 @@
+[{
+  "name": "tag1",
+  "description": "This is a tag with a given name"
+}, {
+  "description": "This is a tag without a given name"
+}]
