@@ -10,25 +10,25 @@ The used REST approach start from collections name to manage resources. Resource
 
 Here is an example for a generic users collection
 
-> GET  /users
-> Get list of all users
-> GET  /users?name=John&surname=Smith
-> Get list of users called John Smith
-> GET  /users/1
-> Get User of Id 1
-> PUT  /users/2
-> Update User with Id 2
-> POST  /users/
-> Create a new User
-> DELETE  /users/1
-> Delete User with Id 1
+- `GET  /users`
+        Get list of all users
+- `GET  /users?name=John&surname=Smith`
+        Get list of users called John Smith
+- `GET  /users/1`
+        Get User of Id 1
+- `PUT  /users/2`
+        Update User with Id 2
+- `POST  /users/`
+        Create a new User
+- `DELETE  /users/1`
+        Delete User with Id 1
 
-Special "methods" could be added to implement specific functionalities over the data from a single resource (like a login that uses a username and a password of a user resource). the HTTP verb is POST to passing parameters in body. Some example for users (the {} identifies the body parameters):
+Special methods could be added to implement specific functionalities over the data of a single resource (like a login that uses a username and a password of a user resource). the HTTP verb is POST to passing parameters in body. Some example for users (the {} identifies the body parameters):
 
-- login ( POST /users/login {username, password} )
-- logout ( POST /users/logout {username} )
-- forgotten password password   (POST /users/)
-
+- login: `POST /users/login {username, password}`
+- logout: `POST /users/logout {username}`
+- forgotten password: `POST /users/password/forgotten {username}`
+- reset a forgotten password: `POST /users/password/change {username, token, newpassword}`
 
 This design facilitates writing APIs that are loosely coupled with clients and easier to design, handle, review, and test. Please, have a look at swaggerize-express (https://github.com/krakenjs/swaggerize-express) and swaggering-mongoose (https://github.com/pblabs/swaggering-mongoose) for more details.
 
@@ -52,7 +52,7 @@ The `swagger` folder contains the definitions for API and models . Inside, API d
         $ npm start
 - Build the container (you should have Docker running):
         $ ./container/setup.sh
-- Use `curl`, `resty`, [Postman](http://www.getpostman.com/) or such to play with those endpoints
+- Use `curl`, `resty`, [Postman](http://www.getpostman.com/), [restlet](https://restlet.com/modules/client/) or such to play with those endpoints
 
 ## Unit testing
 
